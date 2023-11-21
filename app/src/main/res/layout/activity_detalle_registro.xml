@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Detalle.Detalle_registro">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <!--Título-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_Titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <!--Dato-->
+            <TextView
+                android:id="@+id/D_Titulo"
+                android:text="@string/D_Titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="18sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Cuenta-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_Cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <!--Dato-->
+            <TextView
+                android:id="@+id/D_Cuenta"
+                android:text="@string/D_Cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="18sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Nombre usuario-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_NombreUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <!--Dato-->
+            <TextView
+                android:id="@+id/D_NombreUsuario"
+                android:text="@string/D_NombreUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="18sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Contraseña-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:passwordToggleEnabled="true">
+
+                <!--Dato-->
+                <EditText
+                    android:id="@+id/D_Password"
+                    android:text="@string/D_Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/opensans_bold"
+                    android:textSize="18sp"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Sitio web-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_SitioWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Dato-->
+                <TextView
+                    android:id="@+id/D_SitioWeb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/D_SitioWeb"
+                    android:layout_toStartOf="@+id/Im_Ir_Web"
+                    android:textSize="18sp" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/Im_Ir_Web"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="5dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_enviar"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"/>
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Nota-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_Nota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <!--Dato-->
+            <TextView
+                android:id="@+id/D_Nota"
+                android:text="@string/D_Nota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="18sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Tiempo registro-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_Tiempo_registro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <!--Dato-->
+            <TextView
+                android:id="@+id/D_Tiempo_registro"
+                android:text="@string/D_Tiempo_registro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="18sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Tiempo actualización-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!--Texto-->
+            <TextView
+                android:text="@string/Txt_D_Tiempo_actualizacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20sp"/>
+
+            <!--Dato-->
+            <TextView
+                android:id="@+id/D_Tiempo_actualizacion"
+                android:text="@string/D_Tiempo_actualizacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="18sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#000"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/D_Imagen"
+            android:src="@drawable/ic_imagen"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

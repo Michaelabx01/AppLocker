@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_gravity="center"
+    android:background="#ffffff">
+
+    <Button
+        android:id="@+id/Btn_Editar_Registro"
+        android:text="@string/Btn_Editar_Registro"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/opensans_bold"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/Btn_Eliminar_Registro"
+        android:text="@string/Btn_Eliminar_Registro"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/opensans_bold"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

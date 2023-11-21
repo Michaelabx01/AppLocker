@@ -1,0 +1,119 @@
+<resources>
+    <string name="app_name">Locker App</string>
+
+    <!--Drawer menu-->
+    <string name="Opcion_Todas">Todas</string>
+    <string name="Opcion_Ajustes">Ajustes</string>
+    <string name="Opcion_AcercaDe">Acerca De</string>
+    <string name="Opcion_Salir">Salir</string>
+
+    <!--DrawerLayout-->
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+    <!--FAB-->
+    <string name="FAB_AgregarPassword">Agregar</string>
+
+    <!--DISEÑO AGREGAR PASSWORD-->
+    <string name="EtTitulo">Título</string>
+    <string name="EtCuenta">Cuenta</string>
+    <string name="EtNombreUsuario">Nombre de usuario</string>
+    <string name="EtPassword">Contraseña</string>
+    <string name="EtSitioWeb">Sitio Web</string>
+    <string name="EtNota">Nota</string>
+    <string name="Btn_Adjuntar_Imagen">Adjuntar imagen</string>
+
+    <!--Menú agregar password-->
+    <string name="Guardar_Password">Guardar</string>
+
+    <!--Item password-->
+    <string name="Item_titulo">Título</string>
+    <string name="Item_cuenta">Cuenta</string>
+    <string name="Item_nombre_usuario">Nombe de usuario</string>
+    <string name="Item_password">Password</string>
+    <string name="Item_sitio_web">Sitio web</string>
+    <string name="Item_nota">Nota</string>
+
+    <!--Menú fragmento todas-->
+    <string name="menu_Numero_registros">Número de registros</string>
+    <string name="menu_Buscar_registros">Buscar registros</string>
+    <string name="menu_Ordenar_registros">Ordenar registros</string>
+
+    <!--Cuadro de diálogo - número de registros-->
+    <string name="TxtTotal">Total de registros</string>
+    <string name="Total"> -- </string>
+    <string name="BtnEntendidoTotal">Entendido</string>
+
+    <!--Detalle registro-->
+    <string name="Txt_D_Titulo">Título: </string>
+    <string name="D_Titulo"> -- </string>
+    <string name="Txt_D_Cuenta">Cuenta: </string>
+    <string name="D_Cuenta"> -- </string>
+    <string name="Txt_D_NombreUsuario">Nombre de usuario: </string>
+    <string name="D_NombreUsuario"> -- </string>
+    <string name="Txt_D_Password">Contraseña: </string>
+    <string name="D_Password"> -- </string>
+    <string name="Txt_D_SitioWeb">Sitio web: </string>
+    <string name="D_SitioWeb"> -- </string>
+    <string name="Txt_D_Nota">Nota: </string>
+    <string name="D_Nota"> -- </string>
+    <string name="Txt_D_Tiempo_registro">Tiempo de registro: </string>
+    <string name="D_Tiempo_registro"> -- </string>
+    <string name="Txt_D_Tiempo_actualizacion">Tiempo de actualización: </string>>
+    <string name="D_Tiempo_actualizacion"> -- </string>
+
+    <!--Cuadro de diálogo editar - eliminar registro-->
+    <string name="Btn_Editar_Registro">Editar</string>
+    <string name="Btn_Eliminar_Registro">Eliminar</string>
+
+    <!--Cuadro de diálogo - ordenar registros-->
+    <string name="Btn_Nuevos">Nuevos</string>
+    <string name="Btn_Pasados">Pasados</string>
+    <string name="Btn_Asc">A-Z</string>
+    <string name="Btn_Des">Z-A</string>
+
+    <!--Ajustes-->
+    <string name="Txt_Ajustes">Ajustes</string>
+    <string name="Eliminar_Todos_Registros">Eliminar todos los registros</string>
+    <string name="Exportar_Archivo">Exportar archivo CSV</string>
+    <string name="Importar_Archivo">Importar archivo CSV</string>
+    <string name="Cambiar_password_maestra">Cambiar contraseña maestra</string>
+
+    <!--Cuadro de diálogo mensaje-->
+    <string name="Pregunta_Txt">¿Estás seguro(a) de eliminar todos los registros?</string>
+    <string name="Btn_Si">Si, estoy de acuerdo</string>
+    <string name="Btn_Cancelar">Cancelar</string>
+    <string name="Btn_cerrar_imagen">Cerrar</string>
+
+    <!--Cuadro de diálogo - password maestra-->
+    <string name="TXT_password_maestra">Su contraseña maestra es:</string>
+    <string name="Password_maestra"> -- </string>
+    <string name="Et_nuevo_password_maestra">Nueva contraseña maestra</string>
+    <string name="Et_C_nuevo_password_maestra">Confirme contraseña maestra</string>
+    <string name="Btn_cambiar_password_maestra">Cambiar</string>
+    <string name="Btn_cancelar_password_maestra">Cancelar</string>
+
+    <!--Registro-->
+    <string name="TXTBienvenidos">¡Bienvenidos(as)!</string>
+    <string name="TXTMensaje">Por favor introduzca una contraseña maestra</string>
+    <string name="EtPasswordU">Contraseña</string>
+    <string name="EtCPassword">Confirmar contraseña</string>
+    <string name="BtnRegistrar">Registrar</string>
+
+    <!--Login-->
+    <string name="BtnIngresar">Ingresar</string>
+
+    <!--Inicio sesión biométrico-->
+    <string name="TXT_otro_metodo">Otro método</string>
+    <string name="BtnInicioSesionBiometrico">Autenticación biométrica</string>
+
+    <!--Información de la aplicación-->
+    <string name="DesarrolladorTXT">Desarrollado por: Marco Barón Effio</string>
+    <string name="CorreoContactoTXT">Contacto: marco@gmail.com</string>
+    <string name="VersionTXT">Versión: 1.0</string>
+
+    <string name="Ir_terminos_politicas">Políticas de privacidad</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

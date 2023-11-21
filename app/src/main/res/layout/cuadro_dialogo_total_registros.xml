@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="#fff">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_marginTop="10dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="password_animation.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:text="@string/TxtTotal"
+                android:textSize="18sp"
+                android:fontFamily="@font/opensans_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/Total"
+                android:text="@string/Total"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/opensans_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <Button
+            android:id="@+id/BtnEntendidoTotal"
+            android:text="@string/BtnEntendidoTotal"
+            android:layout_marginTop="15dp"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

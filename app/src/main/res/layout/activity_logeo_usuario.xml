@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="15dp"
+    android:orientation="vertical"
+    tools:context=".Login_usuario.Logeo_usuario">
+
+    <TextView
+        android:text="@string/TXTBienvenidos"
+        android:textSize="25sp"
+        android:fontFamily="@font/opensans_regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--Contraseña usuario-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/EtPasswordU"
+            android:hint="@string/EtPasswordU"
+            android:inputType="textPassword"
+            android:fontFamily="@font/opensans_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Botón ingresar-->
+    <Button
+        android:id="@+id/BtnIngresar"
+        android:text="@string/BtnIngresar"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/opensans_regular"
+        android:textColor="#fff"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="@string/TXT_otro_metodo"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/opensans_regular"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <!--Botón inicio sesión biométrico-->
+        <Button
+            android:id="@+id/BtnInicioSesionBiometrico"
+            android:text="@string/BtnInicioSesionBiometrico"
+            android:fontFamily="@font/opensans_regular"
+            android:textColor="#fff"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/Ib_Aviso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_acerca_de"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_fileName="huella_dactilar.json"
+        android:layout_marginTop="10dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

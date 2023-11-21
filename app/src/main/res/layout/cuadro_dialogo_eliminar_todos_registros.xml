@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="10dp">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_fileName="deletev1.json"
+        app:lottie_autoPlay="true"/>
+
+    <TextView
+        android:text="@string/Pregunta_Txt"
+        android:textSize="18sp"
+        android:fontFamily="@font/opensans_bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/Btn_Si"
+        android:text="@string/Btn_Si"
+        android:layout_marginTop="10dp"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/opensans_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/Btn_Cancelar"
+        android:text="@string/Btn_Cancelar"
+        android:layout_marginTop="10dp"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/opensans_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/menu_Buscar_registros"
+        android:title="@string/menu_Buscar_registros"
+        android:icon="@drawable/ic_buscar_registros"
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/menu_Ordenar_registros"
+        android:title="@string/menu_Ordenar_registros"
+        android:icon="@drawable/ic_ordenar"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/menu_Numero_registros"
+        android:title="@string/menu_Numero_registros"
+        android:icon="@drawable/ic_numero_registros"
+        app:showAsAction="ifRoom">
+
+    </item>
+
+</menu>
