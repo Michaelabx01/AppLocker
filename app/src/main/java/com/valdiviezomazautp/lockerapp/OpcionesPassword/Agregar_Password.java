@@ -1,16 +1,8 @@
 package com.valdiviezomazautp.lockerapp.OpcionesPassword;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -26,6 +18,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.valdiviezomazautp.lockerapp.BaseDeDatos.BDHelper;
 import com.valdiviezomazautp.lockerapp.MainActivity;
@@ -49,8 +50,6 @@ public class Agregar_Password extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Bloquear captura de pantalla
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE , WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_agregar_password);
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
@@ -62,20 +61,13 @@ public class Agregar_Password extends AppCompatActivity {
         Btn_Adjuntar_Imagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(getApplicationContext(),
-                        Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
-                    TomarFotografia();
-                }else {
-                    SolicitudPermisoCamara.launch(Manifest.permission.CAMERA);
-                }
-
+                MostrarCuadroDialogo();
             }
         });
     }
 
-
-
-    private void InicializarVariables(){
+    private void InicializarVariables() {
+        // Inicialización de variables
         EtTitulo = findViewById(R.id.EtTitulo);
         EtCuenta = findViewById(R.id.EtCuenta);
         EtNombreUsuario = findViewById(R.id.EtNombreUsuario);
@@ -141,6 +133,66 @@ public class Agregar_Password extends AppCompatActivity {
             //Falso, se agrega un nuevo registro
         }
     }
+
+    private void MostrarCuadroDialogo() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.cuadro_dialogo_elegir_imagen);
+
+        Button btnElegirGaleria = dialog.findViewById(R.id.Btn_Elegir_Galeria);
+        Button btnElegirCamara = dialog.findViewById(R.id.Btn_Elegir_Camara);
+
+        btnElegirGaleria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SeleccionarImagenDesdeGaleria();
+                dialog.dismiss();
+            }
+        });
+
+        btnElegirCamara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SolicitarPermisoCamara();
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.show();
+    }
+
+    private void SeleccionarImagenDesdeGaleria() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*"); //solo mostramos imagenes
+        startActivityForResult(intent.createChooser(intent, "Seleccionar imagen"), 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //Este método se llamará cuando se seleccione la imagen de la galería
+        if (resultCode == RESULT_OK){
+            if (requestCode == 1){
+                //Obtener la imagen
+                imagenUri = data.getData();
+                //Establecer la imagen
+                Imagen.setImageURI(imagenUri);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void SolicitarPermisoCamara() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+            TomarFotografia();
+        } else {
+            SolicitudPermisoCamara.launch(Manifest.permission.CAMERA);
+        }
+    }
+
+
+
+
 
     private void Agregar_Actualizar_R(){
         /*Obtener datos de entrada*/
@@ -227,19 +279,18 @@ public class Agregar_Password extends AppCompatActivity {
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imagenUri);
-        camaraAcivityResultLauncher.launch(intent);
+        camaraActivityResultLauncher.launch(intent);
 
     }
 
-    private ActivityResultLauncher<Intent> camaraAcivityResultLauncher = registerForActivityResult(
+    private ActivityResultLauncher<Intent> camaraActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK){
+                    if (result.getResultCode() == RESULT_OK) {
                         Imagen.setImageURI(imagenUri);
-                    }
-                    else {
+                    } else {
                         Toast.makeText(Agregar_Password.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
                     }
                 }

@@ -1,5 +1,6 @@
 package com.valdiviezomazautp.lockerapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Ajustes;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Todas;
+import com.valdiviezomazautp.lockerapp.Login_usuario.Logeo_usuario;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -51,18 +53,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.Opcion_Todas) {
+        if (id == R.id.Opcion_Todas){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new F_Todas()).commit();
-        } else if (id == R.id.Opcion_Ajustes) {
+        }
+        if (id == R.id.Opcion_Ajustes){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new F_Ajustes()).commit();
-        } else if (id == R.id.Opcion_Salir) {
-            Toast.makeText(this, "Cerraste sesión", Toast.LENGTH_SHORT).show();
+        }
+        if (id == R.id.Opcion_Salir){
+            CerrarSesion();
+
         }
         drawer.closeDrawer(GravityCompat.START);
-
         return true;
+    }
+
+    private void CerrarSesion() {
+        startActivity(new Intent(MainActivity.this, Logeo_usuario.class));
+        Toast.makeText(this, "Cerraste sesión", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override

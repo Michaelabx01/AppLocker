@@ -114,6 +114,11 @@
 
     <string name="Ir_terminos_politicas">Políticas de privacidad</string>
 
+    <!--CUADRO DE DIÁLOGO - ELEGIR IMAGEN DE-->
+    <string name="ElegirImagenTXT">Elegir imagen de:</string>
+    <string name="Btn_Elegir_Galeria">Galería</string>
+    <string name="Btn_Elegir_Camara">Cámara</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
