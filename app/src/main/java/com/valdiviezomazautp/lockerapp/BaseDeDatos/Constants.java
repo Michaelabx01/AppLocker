@@ -2,13 +2,13 @@ package com.valdiviezomazautp.lockerapp.BaseDeDatos;
 
 public class Constants {
 
-    /*Nombre de la base de datos*/
+
     public static final String BD_NAME = "PASSWORD_BD";
 
-    /*Versión de la base de datos*/
+
     public static final int BD_VERSION = 2;
 
-    /*Nombre de la tabla*/
+
     public static final String TABLE_NAME = "PASSWORD_TABLE";
 
     public static final String C_ID = "ID";
