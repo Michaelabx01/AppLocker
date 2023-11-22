@@ -64,6 +64,13 @@ public class F_AcercaDe extends Fragment {
             }
         });
 
+        Ir_terminos_politicas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ir_p_terminos_politicas = new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/politicasyterminos/inicio"));
+                startActivity(ir_p_terminos_politicas);
+            }
+        });
 
         return view;
     }
