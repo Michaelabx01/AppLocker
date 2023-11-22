@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragmentos.F_AcercaDe">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="desarrollador.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
+        <!--Desarrollador-->
+        <TextView
+            android:text="@string/DesarrolladorTXT"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/opensans_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--Correo contacto-->
+        <TextView
+            android:text="@string/CorreoContactoTXT"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/opensans_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--Versión-->
+        <TextView
+            android:text="@string/VersionTXT"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/opensans_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--Redes sociales-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--Facebook-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/Ir_facebook"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/facebook"/>
+
+            <!--Instagram-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/Ir_Instagram"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/instagram"/>
+
+            <!--Youtube-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/Ir_Youtube"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/youtube"/>
+
+            <!--Twitter-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/Ir_Twitter"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/twitter"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <Button
+            android:id="@+id/Ir_terminos_politicas"
+            android:text="@string/Ir_terminos_politicas"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/opensans_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</FrameLayout>

@@ -15,6 +15,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.valdiviezomazautp.lockerapp.Fragmentos.F_AcercaDe;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Ajustes;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Password;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Todas;
@@ -65,15 +66,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.Opcion_Salir){
             CerrarSesion();
         }
-//        if (id == R.id.Opcion_Acerca){
-//            Toast.makeText(this, "Aplicación desarrollada por: \n" +
-//                    "Valdiviezo Maza Michael", Toast.LENGTH_LONG).show();
-//        }
+        if (id == R.id.Opcion_AcercaDe){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new F_AcercaDe()).commit();
+        }
 
         if (id == R.id.GeneradorPassword){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new F_Password()).commit();
         }
+
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

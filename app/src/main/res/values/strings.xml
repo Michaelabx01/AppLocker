@@ -39,6 +39,7 @@
     <string name="menu_Generador_password">Generador de password</string>
     <string name="menu_Buscar_registros">Buscar registros</string>
     <string name="menu_Ordenar_registros">Ordenar registros</string>
+    <string name="Historial">Historial de password</string>
 
     <!--Cuadro de diálogo - número de registros-->
     <string name="TxtTotal">Total de registros</string>
@@ -109,8 +110,8 @@
     <string name="BtnInicioSesionBiometrico">Autenticación biométrica</string>
 
     <!--Información de la aplicación-->
-    <string name="DesarrolladorTXT">Desarrollado por: Marco Barón Effio</string>
-    <string name="CorreoContactoTXT">Contacto: marco@gmail.com</string>
+    <string name="DesarrolladorTXT">Desarrollado por: Michael Anthony Valdiviezo Maza</string>
+    <string name="CorreoContactoTXT">Contacto: michaelino02@gmail.com</string>
     <string name="VersionTXT">Versión: 1.0</string>
 
     <string name="Ir_terminos_politicas">Políticas de privacidad</string>
