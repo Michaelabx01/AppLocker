@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Locker App</string>
+    <string name="app_name">AppLocker</string>
 
     <!--Drawer menu-->
     <string name="Opcion_Todas">Todas</string>
@@ -36,6 +36,7 @@
 
     <!--Menú fragmento todas-->
     <string name="menu_Numero_registros">Número de registros</string>
+    <string name="menu_Generador_password">Generador de password</string>
     <string name="menu_Buscar_registros">Buscar registros</string>
     <string name="menu_Ordenar_registros">Ordenar registros</string>
 
@@ -118,6 +119,12 @@
     <string name="ElegirImagenTXT">Elegir imagen de:</string>
     <string name="Btn_Elegir_Galeria">Galería</string>
     <string name="Btn_Elegir_Camara">Cámara</string>
+
+    <!--Generador de password-->
+    <string name="Txt_Generador_password">Generador de password</string>
+    <string name="Txt_Longitud_password">Longitud de password</string>
+    <string name="TXT_Generar_password">Contraseña generada</string>
+    <string name="Btn_Guardar_password">Generar contraseña</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

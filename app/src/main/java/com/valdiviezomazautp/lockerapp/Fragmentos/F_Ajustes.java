@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -17,6 +18,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
+import android.security.KeyStoreException;
+import android.security.keystore.KeyGenParameterSpec;
+import android.security.keystore.KeyProperties;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,10 +40,29 @@ import com.valdiviezomazautp.lockerapp.Modelo.Password;
 import com.valdiviezomazautp.lockerapp.R;
 
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.Key;
+import java.security.KeyStore;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.SecureRandom;
+import java.security.UnrecoverableKeyException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
+
+import javax.crypto.Cipher;
+import javax.crypto.CipherOutputStream;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import javax.security.cert.CertificateException;
 
 public class F_Ajustes extends Fragment {
 
@@ -192,38 +215,89 @@ public class F_Ajustes extends Fragment {
         registroList = bdHelper.ObtenerTodosRegistros(ordenarTituloAsc);
 
         try {
-            //Escribir en el archivo
-            FileWriter fileWriter = new FileWriter(Carpeta_Archivo);
-            for (int i = 0; i <registroList.size(); i++){
-                fileWriter.append("" + registroList.get(i).getId());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getTitulo());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getCuenta());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getNombre_usuario());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getPassword());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getSitio_web());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getNota());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getImagen());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getT_registro());
-                fileWriter.append(",");
-                fileWriter.append("" + registroList.get(i).getT_actualiacion());
-                fileWriter.append("\n");
+            // Generar una clave secreta y un vector de inicialización (IV) para AES
+            SecureRandom random = new SecureRandom();
+            byte[] keyBytes = new byte[16];
+            random.nextBytes(keyBytes);
+            SecretKey secretKey = new SecretKeySpec(keyBytes, "AES");
+            byte[] ivBytes = new byte[16];
+            random.nextBytes(ivBytes);
+            IvParameterSpec ivSpec = new IvParameterSpec(ivBytes);
+
+            // Crear instancia de cifrado AES
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivSpec);
+
+            // Flujo de salida para escribir el archivo cifrado
+            FileOutputStream fileOutputStream = new FileOutputStream(Carpeta_Archivo);
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+
+            // Escribir IV al archivo
+            bufferedOutputStream.write(ivBytes);
+
+            // Crear flujo de salida cifrado
+            CipherOutputStream cipherOutputStream = new CipherOutputStream(bufferedOutputStream, cipher);
+
+            // Escribir datos cifrados al archivo
+            for (int i = 0; i < registroList.size(); i++) {
+                cipherOutputStream.write(("" + registroList.get(i).getId() + "," +
+                        registroList.get(i).getTitulo() + "," +
+                        registroList.get(i).getCuenta() + "," +
+                        registroList.get(i).getNombre_usuario() + "," +
+                        registroList.get(i).getPassword() + "," +
+                        registroList.get(i).getSitio_web() + "," +
+                        registroList.get(i).getNota() + "," +
+                        registroList.get(i).getImagen() + "," +
+                        registroList.get(i).getT_registro() + "," +
+                        registroList.get(i).getT_actualiacion() + "\n").getBytes());
             }
-            fileWriter.flush();
-            fileWriter.close();
-            Toast.makeText(getActivity(), "Se ha exportado el archivo CSV con éxito", Toast.LENGTH_SHORT).show();
-        }catch (Exception e){
-            Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+            // Cerrar flujo de salida cifrado
+            cipherOutputStream.close();
+
+            Toast.makeText(getActivity(), "Se ha exportado y cifrado el archivo CSV con éxito", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), "Error al exportar y cifrar el archivo CSV: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private SecretKey obtenerClaveSecreta() throws NoSuchAlgorithmException, InvalidKeySpecException, IOException, KeyStoreException, CertificateException, NoSuchProviderException, InvalidAlgorithmParameterException, java.security.cert.CertificateException, UnrecoverableKeyException, java.security.KeyStoreException {
+        KeyStore keyStore = null;
+        try {
+            keyStore = KeyStore.getInstance("AndroidKeyStore");
+        } catch (java.security.KeyStoreException e) {
+            throw new RuntimeException(e);
+        }
+        keyStore.load(null);
+
+        // Nombre de la clave en el almacén de claves
+        String alias = "mi_clave_maestra";
+
+        Key key = keyStore.getKey(alias, null);
+
+        if (key == null) {
+            // Si la clave no existe, la creamos
+            KeyGenerator keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
+            KeyGenParameterSpec.Builder builder = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                builder = new KeyGenParameterSpec.Builder(alias,
+                        KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+                        .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+                        .setUserAuthenticationRequired(false)
+                        .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7);
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                keyGenerator.init(builder.build());
+            }
+            key = keyGenerator.generateKey();
         }
 
+        return (SecretKey) key;
     }
+
+
+
 
     private void ImportarRegistros() {
         //Establecer la ruta

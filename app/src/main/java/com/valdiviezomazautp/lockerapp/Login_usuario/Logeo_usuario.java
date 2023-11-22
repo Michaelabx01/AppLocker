@@ -61,6 +61,9 @@ public class Logeo_usuario extends AppCompatActivity {
             }
         });
 
+
+        //Implementacion Biometrica
+
         biometricPrompt = new BiometricPrompt(Logeo_usuario.this, new BiometricPrompt.AuthenticationCallback() {
             @Override
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {

@@ -21,8 +21,7 @@
         android:id="@+id/menu_Numero_registros"
         android:title="@string/menu_Numero_registros"
         android:icon="@drawable/ic_numero_registros"
-        app:showAsAction="ifRoom">
+        app:showAsAction="ifRoom"/>
 
-    </item>
 
 </menu>
