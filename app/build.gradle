@@ -41,4 +41,7 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'com.opencsv:opencsv:4.6'
     implementation 'androidx.biometric:biometric:1.1.0'
+    implementation 'com.github.yukuku:ambilwarna:2.0.1'
+
+
 }

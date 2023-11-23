@@ -34,9 +34,9 @@
         android:title="@string/menu_Generador_password"
         android:icon="@drawable/ic_passwordv3" />
 
-<!--    <item-->
-<!--        android:id="@+id/HistorialPassword"-->
-<!--        android:title="@string/Historial"-->
-<!--        android:icon="@drawable/ic_passwordv2" />-->
+    <item
+        android:id="@+id/Opcion_estilo"
+        android:title="@string/Estilo"
+        android:icon="@drawable/ic_estilo" />
 
 </menu>

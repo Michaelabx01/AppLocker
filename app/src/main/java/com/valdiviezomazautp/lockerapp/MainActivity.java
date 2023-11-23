@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_AcercaDe;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Ajustes;
+import com.valdiviezomazautp.lockerapp.Fragmentos.F_Estilo;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Password;
 import com.valdiviezomazautp.lockerapp.Fragmentos.F_Todas;
 import com.valdiviezomazautp.lockerapp.Login_usuario.Logeo_usuario;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -75,6 +78,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new F_Password()).commit();
         }
+
+        if (id == R.id.Opcion_estilo){
+           getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new F_Estilo()).commit();
+        }
+
+
 
 
         drawer.closeDrawer(GravityCompat.START);

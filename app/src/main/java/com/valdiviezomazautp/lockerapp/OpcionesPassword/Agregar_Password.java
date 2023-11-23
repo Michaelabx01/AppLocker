@@ -51,18 +51,21 @@ public class Agregar_Password extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_password);
+
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setTitle("");
-
         InicializarVariables();
         ObtenerInformacion();
+
+
 
         Btn_Adjuntar_Imagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MostrarCuadroDialogo();
             }
+
         });
     }
 
